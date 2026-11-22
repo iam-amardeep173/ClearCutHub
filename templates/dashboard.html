@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - ClearCutHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<!-- Loading Spinner -->
+<div id="spinner" class="spinner">
+  <div class="loading"></div>
+</div>
+
+<!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+      <img src="static/images/logo.png" alt="ClearCut Logo" class="website-logo">
+      ClearCutHub
+  </div>
+  <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/background-remove">Background Change</a></li> <!-- Fixed Link -->
+      <li><a href="/resize-image">Photo Compress</a></li>
+      <!-- <li><a href="/all-tools">All Convert Tools</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/signup">Signup</a></li> -->
+      <li><a href="/#all-tools">All Convert Tools</a></li>
+      <li><a href="/#Contact">Contack</a></li>
+  </ul>
+  <!-- Hamburger Menu -->
+  <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+  </div>
+</nav>
+
+
+
+<!-- Dashboard Main -->
+<main class="dashboard-main">
+  <section class="welcome">
+    <h1>Welcome back 👋</h1>
+    <p>Choose a tool below to get started:</p>
+  </section>
+
+  <section class="dashboard-tools">
+    <input type="text" id="tool-filter" placeholder="Search Tools" class="tool-search">
+
+    <div class="tool-grid">
+      <a href="/background-remove" class="tool-box">🖌️ Background Remover</a>
+      <a href="/resize-image" class="tool-box">📐 Image Resize</a>
+      <a href="/compress-image" class="tool-box">📉 Image Compress</a>
+      <a href="/compress-pdf" class="tool-box">📄 PDF Resize</a>
+      <a href="/word-to-pdf" class="tool-box">📝 Word to PDF</a>
+      <a href="/merge-pdf" class="tool-box">➕ Merge PDFs</a>
+      <a href="/split-pdf" class="tool-box">➗ Split PDFs</a>
+      <a href="/image-convert" class="tool-box">🖼️ JPG to PNG</a>
+      <a href="/image-convert" class="tool-box">🔁 PNG to JPG</a>
+      <a href="/jpg-to-pdf" class="tool-box">📑 JPG to PDF</a>
+      <a href="/merge-csv-excel" class="tool-box">🧩 Merge CSV/Excel</a>
+      <a href="/pdf-to-word"class="tool-box">📄 PDF to Word</a>
+      <a href="/pdf-ppt-converter"class="tool-box">📊 PDF ⇄ PowerPoint</a>
+      <a href="/convert-cdr"class="tool-box">🎨 CDR ⇄ PDF | JPG | PNG</a>
+      <a href="/convert-webp"class="tool-box">🖼️ WEBP ⇄ PNG | JPG</a>
+      <a href="/pdf-protect"class="tool-box">🔒 PDF Protect</a>
+      <a href="/pdf-unlock"class="tool-box">🔓 PDF Unlock</a>
+      <a href="/add-blank-page"class="tool-box">➕ Add Blank Page</a>
+      <a href="/text-formatter"class="tool-box">📝 Text Formatter</a>
+
+    </div>
+  </section>
+</main>
+
+<!-- External JS -->
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+</html>

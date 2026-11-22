@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - JPG to PDF Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jpg_to_pdf.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo">
+    ClearCutHub
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/background-remove">Background Change</a></li>
+    <li><a href="/resize-image">Image Resize</a></li>
+    <li><a href="/#all-tools">All Convert Tools</a></li>
+    <li><a href="/#Contact">Contact</a></li>
+  </ul>
+  <div class="menu-toggle" id="menuToggle">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </div>
+</nav>
+
+<!-- JPG to PDF Section -->
+<section id="convert">
+  <h2 class="text-xl font-bold mb-4 text-center">Convert JPG Images to PDF</h2>
+
+  <form id="convertForm" method="POST" enctype="multipart/form-data">
+    <!-- Drag & Drop Zone -->
+    <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded p-6 mb-4 text-center cursor-pointer">
+      <p class="text-gray-500 text-sm">Drag & drop JPG images here or click to select</p>
+      <input type="file" id="image_file" name="images" accept="image/jpeg" multiple class="hidden" />
+    </div>
+
+    <!-- Image Previews -->
+    <div id="previewContainer" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+
+    <!-- Submit -->
+    <button type="submit" class="mt-6 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Convert to PDF</button>
+  </form>
+
+  <!-- Download Section -->
+  <div id="downloadSection" class="hidden mt-6 text-center">
+    <h3 class="text-green-600 font-semibold mb-2">✅ PDF created successfully!</h3>
+    <a id="downloadLink" href="#" download class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Download PDF</a>
+  </div>
+</section>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+</script>
+
+<!-- JS to handle drag-drop, previews & convert -->
+<script src="{{ url_for('static', filename='js/jpg_to_pdf.js') }}"></script>
+</body>
+</html>

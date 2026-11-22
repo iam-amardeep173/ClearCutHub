@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - background-remove</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Link External CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/background_remove.css') }}">
+
+  <!-- Tailwind for fast design (optional) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="static/images/logo.png" alt="ClearCut Logo" class="website-logo">
+        ClearCutHub
+    </div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/background-remove">Background Change</a></li> <!-- Fixed Link -->
+        <li><a href="/resize-image">Photo Compress</a></li>
+        <li><a href="/#all-tools">All Convert Tools</a></li>
+        <li><a href="/#Contact">Contact</a></li>
+
+    </ul>
+    <!-- Hamburger Menu -->
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</nav>
+
+<!-- Upload Section -->
+<section id="upload" class="container mx-auto px-6 py-12">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-center mb-6 text-indigo-600">Upload Your Image</h2>
+  
+      <form id="uploadForm" enctype="multipart/form-data">
+        <!-- Image Upload -->
+        <input type="file" name="file" required class="block w-full border border-gray-300 p-3 mb-4 rounded">
+  
+        <!-- Background Mode -->
+        <label class="block text-gray-700 mb-2">Select Background Type:</label>
+        <select name="background_mode" id="backgroundMode" class="block w-full border border-gray-300 p-3 mb-4 rounded">
+          <option value="transparent">Transparent</option>
+          <option value="color">Custom Color</option>
+          <option value="image">Upload Background Image</option>
+        </select>
+  
+        <!-- Color Picker Section -->
+        <div id="colorPickerDiv" class="hidden">
+            <label class="block text-gray-700 mb-2">Pick a Color:</label>
+            <input type="color" name="background_color" value="#ffffff" class="block w-full border border-gray-300 p-3 mb-4 rounded" id="colorPicker">
+            
+            <!-- This div will show the selected color -->
+            <div id="colorDisplay" class="w-full h-12 border border-gray-300 mt-2 rounded"></div>
+        </div>
+    
+        <!-- Background Image Upload -->
+        <div id="bgImageDiv" class="hidden">
+          <label class="block text-gray-700 mb-2">Upload Background Image:</label>
+          <input type="file" name="background_image" class="block w-full border border-gray-300 p-3 mb-4 rounded">
+        </div>
+  
+        <!-- Threshold -->
+        <label class="block text-gray-700 mb-2">Threshold (0.0 to 1.0):</label>
+        <input type="number" name="threshold" min="0" max="1" step="0.01" value="0.5" class="block w-full border border-gray-300 p-3 mb-4 rounded">
+  
+        <!-- Smoothing -->
+        <label class="block text-gray-700 mb-2">Smoothing (pixels):</label>
+        <input type="number" name="smoothing" min="0" max="10" value="2" class="block w-full border border-gray-300 p-3 mb-6 rounded">
+  
+        <!-- Submit -->
+        <button type="submit" class="bg-indigo-600 w-full py-3 text-white font-bold rounded hover:bg-indigo-700">
+          Upload and Remove Background
+        </button>
+  
+        <!-- Spinner -->
+        <div id="spinner" class="flex justify-center mt-4 hidden">
+          <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+          </svg>
+        </div>
+      </form>
+  
+      <!-- Result -->
+      <div id="resultContainer" class="mt-8 hidden text-center">
+        <h2 class="text-2xl font-semibold mb-4">Result:</h2>
+        <img id="resultImage" class="mx-auto rounded shadow-md max-w-[300px] max-h-[300px] object-contain" />
+        <a id="downloadLink" download="output.png" class="block mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+          Download Image
+        </a>
+      </div>
+  
+    </div>
+</section>
+
+<!-- Footer Section -->
+
+
+<!-- External JS -->
+<script src="{{ url_for('static', filename='js/background_remove.js') }}"></script>
+
+<script>
+  
+    // Handle background mode selection
+const backgroundModeSelect = document.getElementById("backgroundMode");
+const colorPickerDiv = document.getElementById("colorPickerDiv");
+const bgImageDiv = document.getElementById("bgImageDiv");
+const colorPicker = document.getElementById("colorPicker");
+const colorDisplay = document.getElementById("colorDisplay");
+
+backgroundModeSelect.addEventListener("change", function () {
+  const selectedMode = backgroundModeSelect.value;
+  if (selectedMode === "color") {
+    colorPickerDiv.classList.remove("hidden");
+    bgImageDiv.classList.add("hidden");
+  } else if (selectedMode === "image") {
+    bgImageDiv.classList.remove("hidden");
+    colorPickerDiv.classList.add("hidden");
+  } else {
+    colorPickerDiv.classList.add("hidden");
+    bgImageDiv.classList.add("hidden");
+  }
+});
+
+// Update color display when color is selected
+colorPicker.addEventListener("input", function () {
+  colorDisplay.style.backgroundColor = colorPicker.value;
+});
+
+// Mobile menu toggle — **move this outside other event listeners**
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.getElementById('nav-links');
+
+mobileMenu.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+    
+</script>
+
+</body>
+</html>

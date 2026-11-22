@@ -1,0 +1,269 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8fafc;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 12px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.website-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links li a {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1f2937;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links li a:hover {
+  color: #4f46e5;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #4f46e5;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Navbar */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #111827;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Section Styling */
+section#add-blank {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* File Upload */
+input[type="file"] {
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #4f46e5;
+}
+
+/* Buttons */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Preview Container */
+#previewContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  min-height: 200px;
+  border: 2px dashed #cbd5e1;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f1f5f9;
+}
+
+/* PDF Page Thumbnails */
+#previewContainer img {
+  width: 150px;
+  height: auto;
+  cursor: grab;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+#previewContainer img:hover {
+  transform: scale(1.03);
+  border-color: #a5b4fc;
+}
+
+#previewContainer img.selected {
+  transform: scale(1.08);
+  border-color: #4f46e5;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Drag Over Effect */
+#previewContainer.drag-over {
+  background-color: #e0f2fe;
+  border-color: #0284c7;
+}
+
+/* Insert Button */
+#addBlankPageButton {
+  background-color: #4f46e5;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+#addBlankPageButton:hover {
+  background-color: #4338ca;
+}
+
+/* Generate PDF Button */
+#generatePdfButton {
+  background-color: #10b981;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+#generatePdfButton:hover {
+  background-color: #059669;
+}
+
+/* Download Section */
+#downloadLinkContainer {
+  display: none;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#downloadLink {
+  background-color: #16a34a;
+  padding: 12px 24px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+#downloadLink:hover {
+  background-color: #15803d;
+}
+
+/* Drop Placeholder Styling */
+.placeholder {
+  border: 2px dashed #9ca3af;
+  height: 180px;
+  width: 150px;
+  background: #fef3c7;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #92400e;
+  font-weight: bold;
+}
+
+/* For blank inserted pages */
+.blank-page-preview {
+  background: repeating-linear-gradient(
+    45deg,
+    #e5e7eb,
+    #e5e7eb 10px,
+    #ffffff 10px,
+    #ffffff 20px
+  );
+  border: 2px dashed #6b7280;
+  width: 150px;
+  height: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 6px;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ClearCutHub - Cookie Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Aboutme.css') }}" />
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo" />
+      ClearCutHub
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/background-remove">Background Change</a></li>
+      <li><a href="/resize-image">Image Resize</a></li>
+      <li><a href="/#all-tools">All Convert Tools</a></li>
+      <li><a href="/#Contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>
+
+  <!-- Cookie Policy Section -->
+  <section class="px-6 py-12 max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6">🍪 Cookie Policy</h1>
+
+    <p class="mb-4">
+      This Cookie Policy explains how ClearCutHub ("we", "us", or "our") uses cookies and similar technologies when you visit our website.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">1. What Are Cookies?</h2>
+    <p class="mb-4">
+      Cookies are small text files stored on your device when you visit a website. They help us improve your experience, understand how our website is used, and personalize content.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">2. Types of Cookies We Use</h2>
+    <ul class="list-disc list-inside mb-4">
+      <li><strong>Essential Cookies:</strong> Necessary for website functionality (e.g., login, page navigation).</li>
+      <li><strong>Performance Cookies:</strong> Help us analyze how visitors use our site.</li>
+      <li><strong>Functional Cookies:</strong> Remember preferences and enhance features.</li>
+      <li><strong>Marketing Cookies:</strong> Track your visits to help deliver relevant ads.</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">3. How You Can Control Cookies</h2>
+    <p class="mb-4">
+      You can manage or disable cookies via your browser settings. Note that disabling some cookies may affect website functionality.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">4. Third-Party Cookies</h2>
+    <p class="mb-4">
+      Some cookies are set by third-party services such as Google Analytics, Facebook, or advertising partners.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">5. Changes to This Policy</h2>
+    <p class="mb-4">
+      We may update this Cookie Policy from time to time. Changes will be posted on this page with the date of the latest revision.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">6. Contact Us</h2>
+    <p>
+      If you have any questions about our use of cookies, feel free to <a href="/#Contact" class="text-blue-600 underline">contact us</a> or email us at <a href="mailto:support@clearcuthub.com" class="text-blue-600">support@clearcuthub.com</a>.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-gray-800 py-10 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-8">ClearCutHub Tools</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-items-center text-sm">
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="/about" class="footer-link">About Us</a></li>
+            <li><a href="/features" class="footer-link">Features</a></li>
+            <li><a href="/pricing" class="footer-link">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="/terms" class="footer-link">Terms of Service</a></li>
+            <li><a href="/privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="/cookie-policy" class="footer-link">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Support</h4>
+          <ul class="space-y-2">
+            <li><a href="/#Contact" class="footer-link">Contact Us</a></li>
+            <li><a href="/documentation" class="footer-link">Documentation</a></li>
+            <li><a href="/system-status" class="footer-link">System Status</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+  </script>
+
+</body>
+</html>

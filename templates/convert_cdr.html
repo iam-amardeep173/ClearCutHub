@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - CDR Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/convert_webp.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo">
+    ClearCutHub
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/background-remove">Background Change</a></li>
+    <li><a href="/resize-image">Image Resize</a></li>
+    <li><a href="/#all-tools">All Convert Tools</a></li>
+    <li><a href="/#Contact">Contact</a></li>
+
+  </ul>
+  <div class="menu-toggle" id="menuToggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+
+<!-- Conversion Section -->
+<section class="max-w-4xl mx-auto mt-10 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-semibold text-center text-indigo-600 mb-6">Convert CDR to PDF, PNG or JPG</h2>
+
+  <form id="convertForm" enctype="multipart/form-data" class="space-y-6">
+    <!-- Output Format -->
+    <div>
+      <label for="convertFormat" class="block mb-2 text-gray-700">Select Output Format for All:</label>
+      <select id="convertFormat" class="w-full border p-3 rounded-md">
+        <option value="">-- Select Format --</option>
+        <option value="pdf">PDF</option>
+        <option value="jpg">JPG</option>
+        <option value="png">PNG</option>
+      </select>
+    </div>
+
+    <!-- File Drop Area -->
+    <div>
+      <label class="block mb-2 text-gray-700">Upload CDR Files:</label>
+      <div id="dropArea" class="w-full p-5 border-2 border-dashed border-indigo-400 rounded-lg text-center cursor-pointer hover:bg-indigo-50">
+        <p>Drag & drop or click to select .cdr files</p>
+        <input type="file" id="file_input" accept=".cdr" multiple hidden>
+      </div>
+      <ul id="fileList" class="mt-4 space-y-2 text-sm text-gray-700"></ul>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700">
+      Convert Files
+    </button>
+
+    <!-- Spinner -->
+    <div id="spinner" class="hidden text-center mt-4">
+      <svg class="animate-spin h-6 w-6 mx-auto text-indigo-600" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+      <p class="text-sm mt-2">Converting...</p>
+    </div>
+
+    <!-- Download Links -->
+    <div id="downloadLinks" class="hidden mt-6 text-center space-y-2"></div>
+  </form>
+</section>
+
+
+
+<!-- Navigation Toggle JS -->
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+<script src="{{ url_for('static', filename='js/convert_cdr.js') }}"></script>
+</body>
+</html>

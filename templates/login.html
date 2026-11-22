@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - ClearCut</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo">
+    ClearCut
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/background-remove">Background Change</a></li>
+    <li><a href="/resize-image">Image Resize</a></li>
+    <li><a href="/all-tools">All Convert Tools</a></li>
+
+    {% if 'user' in session %}
+      <li><a href="{{ url_for('login.logout') }}">Logout</a></li>
+    {% else %}
+      <li><a href="{{ url_for('login.login') }}">Login</a></li>
+      <li><a href="/signup">Signup</a></li>
+    {% endif %}
+  </ul>
+  <div class="menu-toggle" id="menuToggle">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </div>
+</nav>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<!-- Login Form -->
+<div class="login-container">
+  <div class="form-box">
+    <h2>Login to ClearCut</h2>
+
+    <form action="{{ url_for('login.login') }}" method="POST">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" required placeholder="Enter your email" value="{{ request.form['email'] if request.form.get('email') else '' }}">
+      </div>
+      
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" required placeholder="Enter your password">
+      </div>
+      
+      <!-- Forgot Password Link -->
+      <div class="forgot-password text-right">
+        <a href="/forgot-password" class="text-blue-600">Forgot Password?</a>
+      </div>
+
+      <!-- Loading Spinner (Hidden by default) -->
+      <div id="spinner" class="hidden text-center mt-4">
+        <span class="text-blue-600">Logging in...</span>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+
+      <div class="redirect">
+        <p>Don't have an account? <a href="/signup">Signup here</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle?.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</body>
+</html>

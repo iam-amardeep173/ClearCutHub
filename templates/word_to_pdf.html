@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - Word to PDF Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind for fast design -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/word_to_pdf.css') }}">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="/static/images/logo.png" alt="ClearCut Logo" class="website-logo">
+        ClearCutHub
+    </div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/background-remove">Background Change</a></li>
+        <li><a href="/resize-image">Photo Compress</a></li>
+        <li><a href="/#all-tools">All Convert Tools</a></li>
+        <li><a href="/#Contact">Contact</a></li>
+    </ul>
+
+    <!-- Hamburger Menu -->
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</nav>
+
+<!-- Upload Section -->
+<section id="upload" class="container mx-auto px-6 py-12">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-center mb-6 text-indigo-600">Convert Word to PDF</h2>
+
+        <form id="wordToPdfForm" enctype="multipart/form-data">
+            <label class="block text-gray-700 mb-2">Upload Your Word File (.doc, .docx):</label>
+            <input type="file" name="word_file" id="word_file" accept=".doc,.docx" required class="block w-full border border-gray-300 p-3 mb-6 rounded">
+
+            <button type="submit" class="bg-indigo-600 w-full py-3 text-white font-bold rounded hover:bg-indigo-700">
+              Convert to PDF
+            </button>
+
+            <div id="spinner" class="flex justify-center mt-4 hidden">
+              <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+              </svg>
+            </div>
+        </form>
+
+        <div id="resultContainer" class="mt-8 hidden text-center">
+            <h2 class="text-2xl font-semibold mb-4 text-green-600">Download ready!</h2>
+            <a id="downloadLink" class="block mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" target="_blank">
+              Click here if download didn’t start
+            </a>
+        </div>        
+    </div>
+</section>
+
+<!-- Footer Section -->
+
+<script>
+const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+<!-- External JS -->
+<script src="{{ url_for('static', filename='js/word_to_pdf.js') }}"></script>
+
+</body>
+</html>

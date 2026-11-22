@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - Split PDF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/split_pdf.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo">
+    ClearCutHub
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/background-remove">Background Change</a></li>
+    <li><a href="/resize-image">Image Resize</a></li>
+    <li><a href="/#all-tools">All Convert Tools</a></li>
+    <li><a href="/#Contact">Contact</a></li>
+  </ul>
+
+  <!-- Hamburger icon -->
+  <div class="menu-toggle" id="menuToggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+
+<!-- Split PDF Section -->
+<section id="split" class="bg-white mx-auto mt-10 max-w-6xl p-6 rounded shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-6 text-center">Split PDF - Delete Pages</h2>
+
+  <!-- File upload -->
+  <div class="mb-6 text-center">
+    <input type="file" id="pdfInput" accept=".pdf" class="block mx-auto w-full max-w-sm border border-gray-300 p-3 rounded mb-2" />
+    <button onclick="previewPages()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+      Preview Pages
+    </button>
+  </div>
+
+  <!-- Page previews -->
+  <div id="previewContainer" class="grid grid-cols-2 md:grid-cols-4 gap-4 px-4"></div>
+
+  <!-- Delete action -->
+  <div class="text-center mt-6">
+    <button onclick="deleteSelectedPages()" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700">
+      Delete Selected Pages
+    </button>
+  </div>
+
+  <!-- Download link -->
+  <div class="text-center mt-6 hidden" id="downloadLinkContainer">
+    <h3 class="text-xl font-semibold text-green-600 mb-2">Your split PDF is ready!</h3>
+    <a id="downloadLink" href="#" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Download PDF</a>
+  </div>
+</section>
+
+<!-- Footer -->
+
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='js/split_pdf.js') }}"></script>
+
+</body>
+</html>

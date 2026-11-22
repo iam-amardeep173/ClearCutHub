@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - Compress Image</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/compress_images.css') }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo">
+    ClearCutHub
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/background-remove">Background Change</a></li>
+    <li><a href="/resize-image">Photo Compress</a></li>
+        <li><a href="/#all-tools">All Convert Tools</a></li>
+        <li><a href="/#Contact">Contact</a></li>
+  </ul>
+  <div class="menu-toggle" id="mobile-menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+
+<!-- Image Compress Section -->
+<!-- Image Compress Section -->
+<section id="upload" class="container mx-auto px-6 py-12">
+  <div class="bg-white rounded-lg shadow-lg p-8">
+    <h2 class="text-3xl font-bold text-center mb-6 text-indigo-600">Upload Your Image</h2>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      
+      <!-- Drag and Drop Zone -->
+      <div id="dropZone" class="w-full p-6 border-2 border-dashed border-gray-300 rounded mb-4 text-center cursor-pointer hover:bg-gray-50">
+        Drag & Drop Image Here or Click to Browse
+        <img id="imagePreview" class="hidden mt-4 mx-auto max-h-64 rounded" alt="Image preview" />
+      </div>
+
+      <!-- Hidden File Input -->
+      <input type="file" name="image" accept="image/*" class="hidden" required>
+
+      <div id="compressOrFileSize" class="block">
+        <label class="block text-gray-700 mb-2">Choose Compression/Size Option:</label>
+        <div class="flex space-x-4 mb-4">
+          <label class="inline-flex items-center">
+            <input type="radio" name="option" value="compress_quality" class="form-radio" checked> Compression Quality
+          </label>
+          <label class="inline-flex items-center">
+            <input type="radio" name="option" value="target_size" class="form-radio"> Target File Size
+          </label>
+        </div>
+      </div>
+
+      <div id="compressDiv" class="block">
+        <label class="block text-gray-700 mb-2">Select Compression Quality:</label>
+        <select name="compression_quality" id="compressionQuality" class="block w-full border border-gray-300 p-3 mb-4 rounded">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <div id="fileSizeDiv" class="hidden">
+        <label class="block text-gray-700 mb-2">Target File Size:</label>
+        <input type="number" name="target_size_kb" id="targetSize" placeholder="Enter size (in KB)" class="block w-full border border-gray-300 p-3 mb-4 rounded" min="1">
+        <small class="text-gray-600">Enter the desired file size after compression.</small>
+      </div>
+
+      <button type="submit" class="bg-indigo-600 w-full py-3 text-white font-bold rounded hover:bg-indigo-700">
+        Upload and Compress Image
+      </button>
+
+      <div id="spinner" class="flex justify-center mt-4 hidden">
+        <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+        </svg>
+      </div>
+    </form>
+
+    <div id="resultContainer" class="text-center hidden">
+      <a href="#" id="downloadLink" class="hidden mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" download>
+        Download Compressed Image
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<script src="{{ url_for('static', filename='js/compress_images.js') }}"></script>
+
+<script>
+  const radioButtons = document.getElementsByName("option");
+  const compressDiv = document.getElementById("compressDiv");
+  const fileSizeDiv = document.getElementById("fileSizeDiv");
+
+  radioButtons.forEach((radio) => {
+    radio.addEventListener("change", function () {
+      if (radio.value === "compress_quality") {
+        compressDiv.classList.remove("hidden");
+        fileSizeDiv.classList.add("hidden");
+      } else {
+        fileSizeDiv.classList.remove("hidden");
+        compressDiv.classList.add("hidden");
+      }
+    });
+  });
+
+  // Click on drop zone to trigger file input
+  document.getElementById("dropZone").addEventListener("click", () => {
+    document.querySelector('input[type="file"]').click();
+  });
+const menuToggle = document.getElementById('mobile-menu');  // sahi id yahan dalein
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>

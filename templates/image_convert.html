@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - Image Format Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/image_convert.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo">
+    ClearCutHub
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/background-remove">Background Change</a></li>
+    <li><a href="/resize-image">Image Resize</a></li>
+    <li><a href="/#all-tools">All Convert Tools</a></li>
+    <li><a href="/#Contact">Contact</a></li>
+  </ul>
+  <div class="menu-toggle" id="menuToggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+
+<!-- Image Format Converter Section -->
+<!-- Converter -->
+<section id="convert">
+  <h2>Image Format Converter (JPG ⇄ PNG)</h2>
+
+  <form id="convertForm" method="POST" enctype="multipart/form-data">
+    <!-- Drag & Drop Zone -->
+    <div id="dropZone" class="border-2 border-dashed border-gray-300 rounded p-6 mb-4 cursor-pointer text-center">
+      <p class="text-sm text-gray-500">Drag & drop images here or click to select</p>
+      <input type="file" id="image_file" name="images" multiple accept="image/*" class="hidden" />
+    </div>
+
+    <!-- Format Select -->
+    <label for="conversion_type">Convert to:</label>
+    <select name="conversion_type" id="conversion_type" required>
+      <option value="jpg_to_png">JPG to PNG</option>
+      <option value="png_to_jpg">PNG to JPG</option>
+    </select>
+
+    <!-- Previews -->
+    <div id="previewContainer" class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+
+    <!-- Submit -->
+    <button type="submit">Convert</button>
+  </form>
+
+  <!-- Download Section -->
+  <!-- Download Section -->
+<div id="downloadSection" class="hidden mt-4">
+  <h3 class="text-green-600 font-semibold mb-2">✅ Converted Successfully!</h3>
+  <div id="downloadLink"></div> <!-- CHANGED from <a> to <div> -->
+</div>
+</section>
+
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+<!-- External JS -->
+<script src="{{ url_for('static', filename='js/image_convert.js') }}"></script>
+</body>
+</html>

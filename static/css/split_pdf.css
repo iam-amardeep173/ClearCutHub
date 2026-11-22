@@ -1,0 +1,189 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f2f5;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+}
+
+.website-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+}
+
+.nav-links li a:hover {
+  color: #6366f1;
+}
+
+/* Underline hover effect */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #6366f1;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger menu button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+
+/* Download Button */
+#downloadLink {
+  background-color: #48bb78;
+  padding: 12px 24px;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#downloadLink:hover {
+  background-color: #38a169;
+}
+
+/* Image Previews (PDF pages) */
+#previewContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+#previewContainer img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s, border 0.3s, box-shadow 0.3s;
+  border: 2px solid transparent;
+}
+
+#previewContainer img.selected {
+  transform: scale(1.1);
+  border: 2px solid #6366f1; /* Border to highlight the selected page */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for emphasis */
+}
+
+#previewContainer img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Styling for the selected page button */
+.selected-pages-btn {
+  background-color: #6366f1;
+  color: white;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.selected-pages-btn:hover {
+  background-color: #4c51bf;
+}
+
+#downloadLinkContainer {
+  display: none;
+  margin-top: 20px;
+}
+.selected {
+  border: 2px solid red;
+}
+
+

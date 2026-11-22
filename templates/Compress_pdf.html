@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - Compress PDF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Compress_pdf.css') }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo">
+    ClearCutHub
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/background-remove">Background Change</a></li>
+    <li><a href="/resize-image">Photo Compress</a></li>
+    <li><a href="/#all-tools">All Convert Tools</a></li>
+    <li><a href="/#Contact">Contact</a></li>
+  </ul>
+  <div class="menu-toggle" id="mobile-menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </div>
+</nav>
+
+<!-- PDF Compress Section -->
+<section id="upload" class="container mx-auto px-6 py-12">
+  <div class="bg-white rounded-lg shadow-lg p-8">
+    <h2 class="text-3xl font-bold text-center mb-6 text-indigo-600">Upload Your PDF</h2>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" name="file" required accept=".pdf" class="block w-full border border-gray-300 p-3 mb-4 rounded">
+
+      <!-- Compression Option -->
+      <label class="block text-gray-700 mb-2">Choose Compression Method:</label>
+      <div class="flex space-x-4 mb-4">
+        <label class="inline-flex items-center">
+          <input type="radio" name="option" value="compress_quality" class="form-radio" checked> Compression Quality
+        </label>
+        <label class="inline-flex items-center">
+          <input type="radio" name="option" value="target_size" class="form-radio"> Target File Size
+        </label>
+      </div>
+
+      <!-- Compression Quality Options -->
+      <div id="compressDiv">
+        <label class="block text-gray-700 mb-2">Select Compression Quality:</label>
+        <select name="compression_quality" id="compressionQuality" class="block w-full border border-gray-300 p-3 mb-4 rounded">
+          <option value="low">Low (Max compression)</option>
+          <option value="medium">Medium</option>
+          <option value="high">High (Best quality)</option>
+        </select>
+      </div>
+
+      <!-- Target File Size Options -->
+      <div id="fileSizeDiv" class="hidden">
+        <label class="block text-gray-700 mb-2">Target File Size:</label>
+        <input type="number" name="target_size" id="targetSize" placeholder="Enter size (in KB or MB)" class="block w-full border border-gray-300 p-3 mb-4 rounded" min="1">
+        <select name="size_unit" id="sizeUnit" class="block w-full border border-gray-300 p-3 mb-4 rounded">
+          <option value="KB">KB</option>
+          <option value="MB">MB</option>
+        </select>
+        <small class="text-gray-600">You can enter even very small sizes like 100 KB.</small>
+      </div>
+
+      <button type="submit" class="bg-indigo-600 w-full py-3 text-white font-bold rounded hover:bg-indigo-700">
+        Upload and Compress PDF
+      </button>
+
+      <div id="spinner" class="flex justify-center mt-4 hidden">
+        <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+        </svg>
+      </div>
+    </form>
+
+    <!-- Result -->
+    <div id="resultContainer" class="text-center hidden mt-6">
+      <h2 class="text-2xl font-semibold mb-4">Your PDF is Ready!</h2>
+      <a href="#" id="downloadLink" class="block mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" download>
+        📥 Download Compressed PDF
+      </a>
+      <p id="fileSize" class="mt-2 text-gray-700"></p>
+    </div>
+  </div>
+</section>
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='js/Compress_pdf.js') }}"></script>
+<script>
+  const radioButtons = document.getElementsByName("option");
+  const compressDiv = document.getElementById("compressDiv");
+  const fileSizeDiv = document.getElementById("fileSizeDiv");
+
+  radioButtons.forEach((radio) => {
+    radio.addEventListener("change", function () {
+      if (radio.value === "compress_quality") {
+        compressDiv.classList.remove("hidden");
+        fileSizeDiv.classList.add("hidden");
+      } else {
+        fileSizeDiv.classList.remove("hidden");
+        compressDiv.classList.add("hidden");
+      }
+    });
+  });
+  const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');  // You need to define `.active` in CSS to show/hide nav-links
+});
+
+</script>
+
+</body>
+</html>

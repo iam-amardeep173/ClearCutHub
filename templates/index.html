@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - All Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Link External CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind for fast design (optional) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="static/images/logo.png" alt="ClearCut Logo" class="website-logo">
+        ClearCutHub
+    </div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/background-remove">Background Change</a></li> <!-- Fixed Link -->
+        <li><a href="/resize-image">Photo Compress</a></li>
+        <li><a href="#all-tools">All Convert Tools</a></li>
+        <li><a href="/#Contact">Contact</a></li>
+
+        <!-- <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li> -->
+    </ul>
+    <!-- Hamburger Menu -->
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</nav>
+
+
+  
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to <span class="highlight">ClearCutHub</span></h1>
+      <p class="hero-description">All your file editing & conversion needs — super fast, super easy!</p>
+      <a href="/#all-tools" class="hero-button">Explore Our Tools</a>
+    </div>
+  </section>
+  
+
+  <!-- Tools Section -->
+  <section class="tools" id="all-tools">
+    <h2>Our Tools</h2>
+    <div class="tool-grid">
+  
+      <!-- Tool 1: Background Remover -->
+      <a href="/background-remove" class="tool-card">
+        <div class="tool-title">🖌️ Background Remover</div>
+        <p class="tool-description">Remove background from your images easily.</p>
+      </a>
+  
+      <!-- Tool 2: Image Resize -->
+      <a href="/resize-image" class="tool-card">
+        <div class="tool-title">📐 Image Resize</div>
+        <p class="tool-description">Resize images without losing quality.</p>
+      </a>
+      <!-- Tool 3: Image Compress -->
+      <a href="/compress-image" class="tool-card">
+        <div class="tool-title">📉 Image Compress</div>
+        <p class="tool-description">Shrink image size without losing quality.</p>
+      </a>
+      <!-- Tool 3: PDF Resize -->
+      <a href="/compress-pdf" class="tool-card">
+        <div class="tool-title">📄 PDF Resize</div>
+        <p class="tool-description">Compress or resize PDF files.</p>
+      </a>
+      
+  
+      <!-- Tool 4: Word to PDF -->
+      <a href="/word-to-pdf" class="tool-card">
+        <div class="tool-title">📝 Word to PDF</div>
+        <p class="tool-description">Convert Word documents to PDF format.</p>
+      </a>
+  
+      <!-- Tool 5: Merge PDFs -->
+      <a href="/merge-pdf" class="tool-card">
+        <div class="tool-title">➕ Merge PDFs</div>
+        <p class="tool-description">Combine multiple PDFs into one document.</p>
+      </a>
+  
+      <!-- Tool 6: Split PDFs -->
+      <a href="/split-pdf" class="tool-card">
+        <div class="tool-title">➗ Split PDFs</div>
+        <p class="tool-description">Extract pages from PDFs and split them.</p>
+      </a>
+  
+      <!-- Tool 7: JPG to PNG -->
+      <a href="/image-convert" class="tool-card">
+        <div class="tool-title">🖼️ JPG to PNG or </div>
+        <p class="tool-description">Convert JPG images into high-quality PNGs.</p>
+      </a>
+  
+      <!-- Tool 8: PNG to JPG -->
+      <a href="/image-convert" class="tool-card">
+        <div class="tool-title">🔁 PNG to JPG</div>
+        <p class="tool-description">Convert PNG images into JPG format.</p>
+      </a> 
+  
+      <!-- Tool 9: JPG to PDF -->
+      <a href="/jpg-to-pdf" class="tool-card">
+        <div class="tool-title">📑 JPG to PDF</div>
+        <p class="tool-description">Convert JPG images into a single PDF.</p>
+      </a>
+  
+    <!-- Tool 10: Merge CSV/Excel -->
+    <a href="/merge-csv-excel" class="tool-card">
+      <div class="tool-title">🧩 Merge CSV/Excel</div>
+      <p class="tool-description">Combine multiple CSV or Excel files smartly into one.</p>
+    </a>
+    <!-- Tool 10: PDF to Word -->
+  <a href="/pdf-to-word" class="tool-card">
+    <div class="tool-title">📄 PDF to Word</div>
+    <p class="tool-description">Convert PDF files to editable Word documents.</p>
+    </a>
+      <!-- Tool: PDF <-> PowerPoint -->
+  <a href="/pdf-ppt-converter" class="tool-card">
+    <div class="tool-title">📊 PDF ⇄ PowerPoint</div>
+    <p class="tool-description">Convert PDF files to PowerPoint presentations and vice versa.</p>
+  </a>
+
+    <!-- Tool: CDR <-> PDF, JPG, PNG -->
+  <a href="/convert-cdr" class="tool-card">
+    <div class="tool-title">🎨 CDR ⇄ PDF | JPG | PNG</div>
+    <p class="tool-description">Convert CDR vector files to PDF, JPG, or PNG formats easily.</p>
+  </a>
+  <!-- Tool: WEBP <-> PNG/JPG -->
+  <a href="/convert-webp" class="tool-card">
+    <div class="tool-title">🖼️ WEBP ⇄ PNG | JPG</div>
+    <p class="tool-description">Convert WEBP images to PNG or JPG formats quickly and easily.</p>
+  </a>
+
+  <!-- Tool: PDF Protect -->
+<a href="/pdf-protect" class="tool-card">
+  <div class="tool-title">🔒 PDF Protect</div>
+  <p class="tool-description">Secure your PDF files by adding a password with one click.</p>
+</a>
+
+<!-- Tool: PDF Unlock -->
+<a href="/pdf-unlock" class="tool-card">
+  <div class="tool-title">🔓 PDF Unlock</div>
+  <p class="tool-description">Unlock your password-protected PDFs easily.</p>
+</a>
+
+  <!-- Tool: Add Blank Page to PDF -->
+<a href="/add-blank-page" class="tool-card">
+  <div class="tool-title">➕ Add Blank Page</div>
+  <p class="tool-description">Insert blank pages anywhere in your PDF and rearrange pages easily.</p>
+</a>
+
+
+<!-- Tool: Text Formatter -->
+<a href="/text-formatter" class="tool-card">
+  <div class="tool-title">📝 Text Formatter</div>
+  <p class="tool-description">Format and clean up your code with indentation, line breaks, and more.</p>
+</a>
+
+    </div>
+
+
+<section class="about-section">
+  <div class="container">
+    <h2 class="section-title">The Tool Trusted by Thousands of Users</h2>
+    <p class="section-subtitle">
+      ClearCutHub is your trusted platform for fast, secure, and smart file editing and conversion.
+    We ensure top-quality service while keeping your data protected.
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/875/875610.png" alt="Fast" class="feature-icon" />
+        <h3>Lightning-Fast</h3>
+        <div class="tooltip">Convert and edit files in seconds with our optimized cloud engine.</div>
+      </div>
+
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Privacy" class="feature-icon" />
+        <h3>End-to-End Privacy</h3>
+        <div class="tooltip">We never store your files. End-to-end encryption ensures privacy.</div>
+      </div>
+
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3799/3799786.png" alt="AI" class="feature-icon" />
+        <h3>AI Smart Tools</h3>
+        <div class="tooltip">Smart algorithms help in layout recognition and quality enhancement.</div>
+      </div>
+
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" alt="User Friendly" class="feature-icon" />
+        <h3>Easy to Use</h3>
+        <div class="tooltip">No learning curve. Intuitive design on both desktop and mobile.</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- Footer Section -->
+<!-- Modern Footer Section -->
+<section class="footer-section" id="Contact">
+  <!-- Contact Us Section -->
+  <div class="contact-us">
+  <h2>Contact Us</h2>
+  <p>If you have any questions or need support, feel free to get in touch with us. We are here to help you!</p>
+
+  <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="myForm">
+    <!-- Web3Forms access key -->
+    <input type="hidden" name="access_key" value="013fcea7-7a29-4afa-b3a5-4cd896997917">
+    
+    <!-- Redirect to thank-you page after submission -->
+    <input type="hidden" name="redirect" value="https://yourdomain.com/thank-you.html">
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email">
+    </div>
+
+    <div class="form-group full-width">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required placeholder="Write your message" rows="4"></textarea>
+    </div>
+
+    <div class="form-group full-width">
+      <button type="submit">Send Message</button>
+    </div>
+  </form>
+</div>
+  
+<!-- Footer HTML -->
+<!-- Footer Section -->
+<footer class="bg-gray-100 text-gray-800 py-10 px-6" aria-label="Footer">
+  <div class="max-w-6xl mx-auto text-center">
+    <h3 class="text-2xl font-bold mb-8">ClearCutHub Tools</h3>
+    
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-items-center text-sm">
+      <!-- Company Links Column -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Company</h4>
+        <ul class="space-y-2">
+          <li><a href="/about" class="footer-link">About Us</a></li>
+          <li><a href="/features" class="footer-link">Features</a></li>
+          <li><a href="/pricing" class="footer-link">Pricing</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal Links Column -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Legal</h4>
+        <ul class="space-y-2">
+          <li><a href="/terms" class="footer-link">Terms of Service</a></li>
+          <li><a href="/privacy" class="footer-link">Privacy Policy</a></li>
+          <li><a href="/cookie-policy" class="footer-link">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Support Links Column -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Support</h4>
+        <ul class="space-y-2">
+          <li><a href="/#Contact" class="footer-link">Contact Us</a></li>
+          <li><a href="/documentation" class="footer-link">Documentation</a></li>
+          <li><a href="/System_Status" class="footer-link">System Status</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Optional Modal -->
+<div id="footerModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-40" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body">
+  <div class="bg-white rounded-lg p-6 max-w-md mx-auto relative">
+    <span class="absolute top-2 right-3 text-xl cursor-pointer" id="modalClose" aria-label="Close modal">&times;</span>
+    <h3 id="modal-title" class="text-xl font-bold mb-2">Title</h3>
+    <p id="modal-body">Content will go here...</p>
+  </div>
+</div>
+    <!-- Social Media Section -->
+    <div class="social-media">
+      <a href="https://www.linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+        </svg>
+      </a>
+      <a href="https://www.twitter.com" target="_blank" class="social-icon" aria-label="Twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Copyright Notice -->
+    <p class="copyright">
+      &copy; 2025 ClearCutHub Tools. All rights reserved.<br>
+      <span>Made with ♥ in India</span>
+    </p>
+  </div>
+</section>
+
+  <!-- External JS -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

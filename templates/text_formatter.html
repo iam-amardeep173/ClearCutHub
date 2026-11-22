@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - Text Formatter for Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind for fast design -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Prettier Code Formatter CDN -->
+  <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-babel.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-postcss.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-typescript.js"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/text_formatter.css') }}">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="/static/images/logo.png" alt="ClearCut Logo" class="website-logo">
+    ClearCutHub
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/background-remove">Background Change</a></li>
+    <li><a href="/resize-image">Photo Compress</a></li>
+    <li><a href="/#all-tools">All Convert Tools</a></li>
+    <li><a href="/#Contact">Contact</a></li>
+  </ul>
+  <div class="menu-toggle" id="menuToggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+
+<!-- Text Formatter Section -->
+<section id="text-formatter" class="container mx-auto px-6 py-12">
+  <div class="bg-white rounded-lg shadow-lg p-8">
+    <h2 class="text-3xl font-bold text-center mb-6 text-indigo-600">Text Formatter for Code</h2>
+
+    <label class="block text-gray-700 mb-2">Enter Your Code:</label>
+    <textarea id="codeInput" rows="10" class="block w-full border border-gray-300 p-3 mb-4 rounded" placeholder="Paste your code here..."></textarea>
+
+    <label class="block text-gray-700 mb-2">Choose Language:</label>
+    <select id="languageSelector" class="mb-4 w-full border p-2 rounded">
+      <option value="javascript">JavaScript</option>
+      <option value="typescript">TypeScript</option>
+      <option value="html">HTML</option>
+      <option value="css">CSS</option>
+      <option value="json">JSON</option>
+    </select>
+
+    <button id="formatBtn" class="bg-indigo-600 w-full py-3 text-white font-bold rounded hover:bg-indigo-700">
+      ✨ Format Code
+    </button>
+
+    <div id="spinner" class="flex justify-center mt-4 hidden">
+      <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+    </div>
+
+    <div id="resultContainer" class="mt-8 hidden">
+      <h2 class="text-2xl font-semibold mb-4 text-green-600 text-center">Formatted Code is Ready!</h2>
+      <textarea id="formattedOutput" rows="10" class="w-full border p-3 rounded" readonly></textarea>
+      <button id="copyBtn" class="mt-3 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">📋 Copy</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('nav-links');
+  
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+<!-- External JS -->
+<script src="{{ url_for('static', filename='js/text_formatter.js') }}"></script>
+</body>
+</html>

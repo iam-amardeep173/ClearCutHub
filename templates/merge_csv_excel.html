@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClearCutHub - Merge CSV/Excel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Libraries for Excel & CSV -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/merge_csv_excel.css') }}">
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ClearCut Logo" class="website-logo">
+        ClearCutHub
+      </div>
+      <ul class="nav-links" id="nav-links" aria-expanded="false">
+        <li><a href="/">Home</a></li>
+        <li><a href="/background-remove">Background Change</a></li>
+        <li><a href="/resize-image">Image Resize</a></li>
+        <li><a href="/#all-tools">All Convert Tools</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4">
+    <section id="convert" class="max-w-xl mx-auto mt-10 bg-white p-6 rounded shadow-lg">
+      <h2 class="text-2xl font-bold mb-6 text-center">Merge CSV or Excel Files</h2>
+
+      <!-- Error Message Box -->
+      <div id="uploadError" class="hidden p-4 mb-4 text-red-700 bg-red-100 rounded-lg" role="alert"></div>
+
+      <!-- Merge Form -->
+      <form id="mergeForm">
+        <!-- Output Format -->
+        <div class="mb-4">
+          <label for="fileType" class="block mb-2 font-semibold">Output Format:</label>
+          <select id="fileType" class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500">
+            <option value="csv">CSV</option>
+            <option value="excel">Excel (XLSX)</option>
+          </select>
+        </div>
+
+        <!-- Drop Zone -->
+        <div id="dropZone"
+             class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition-colors
+                    hover:border-blue-500 hover:bg-blue-50">
+          <p class="text-gray-500 mb-2">Drag & drop files here</p>
+          <p class="text-sm text-gray-400">or</p>
+          <button type="button"
+                  class="mt-2 px-4 py-2 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                  id="browseBtn">
+            Browse Files
+          </button>
+          <input type="file" id="mergeFiles" accept=".csv,.xlsx" multiple class="hidden" />
+        </div>
+
+        <!-- File Preview -->
+        <div id="filePreview" class="mt-4 space-y-2"></div>
+
+        <!-- Submit Button -->
+        <button type="submit"
+                class="w-full mt-6 bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700
+                       transition-colors disabled:bg-gray-400"
+                id="mergeBtn">
+          Merge Files
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer (optional) -->
+  <!-- <footer class="mt-12 text-center text-sm text-gray-500">© 2025 ClearCut. All rights reserved.</footer> -->
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      const expanded = navLinks.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', expanded);
+    });
+  </script>
+
+  <!-- Main Logic -->
+  <script src="{{ url_for('static', filename='js/merge_csv_excel.js') }}"></script>
+</body>
+</html>
