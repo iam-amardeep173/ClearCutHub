@@ -13,7 +13,6 @@ import fitz  # PyMuPDF for PDF resizing (not used here yet)
 from reportlab.pdfgen import canvas
 from werkzeug.utils import secure_filename  # << important!
 from docx import Document
-import win32com.client  # Windows COM interface for Word to PDF
 from docx2pdf import convert
 import platform
 import io
